@@ -40,8 +40,8 @@ public class TestBase {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
-        capabilities.setCapability("videoName", "OrangeExpressTestCaseForFirstSendOrder.mp4");
-        capabilities.setCapability("name", "OrangeExpressTestCaseForFirstSendOrder");
+        capabilities.setCapability("videoName", "TokaPizzaTestCaseForFirstSendOrder.mp4");
+        capabilities.setCapability("name", "TokaPizzaTestCaseForFirstSendOrder");
         capabilities.setCapability("browserName", "chrome");
         capabilities.setCapability("browserVersion", "91.0");
 
@@ -75,20 +75,7 @@ public class TestBase {
 
     @Step("Открываю сайт")
     public void openURL() {
-        open("https://pizza-sushi.com/");
-    }
-
-    @Step("Выбираю рандомный город. Выбор городов реализован через Drop Down")
-
-    public void restSelect() {
-        List<SelenideElement> terminalSwitch = elements(By.xpath("//ul[contains(@class, \"city-select-list\")]/li/a[(@href) and not (@href = \"/away?url=http%3A%2F%2Fvidnoe.pizza-sushi.com%2F&RestaurantID=01e55e57-78cf-4d3d-b6f4-0b26691781bd\") and not (@href = \"https://tokapizza.ru/\") and not (@href = \"/away?url=http%3A%2F%2Fpodolsk.pizza-sushi.com%2F&RestaurantID=bede0378-681e-4ab7-8377-95840735eea8\")]"));
-        int i = (int) (Math.random() * terminalSwitch.size());
-        terminalSwitch.get(i).click();
-    }
-
-    @Step("кликаю на переход к главной странице")
-    public void goMainPage (){
-        $x("//div[contains(@class, \"h-left\")]/div[@class = \"logo\"]").click();
+        open("https://tokapizza.ru/");
     }
 
     @Step("Перехожу в рандомный пункт меню для оформления тестового заказа")

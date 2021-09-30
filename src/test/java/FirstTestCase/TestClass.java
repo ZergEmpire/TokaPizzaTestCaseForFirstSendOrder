@@ -12,8 +12,6 @@ public class TestClass extends TestBase {
     @Test
     public void userCanSendOrder() {
         openURL();
-        restSelect();
-        goMainPage();
         mathRandomHead();
         pickRandCards();
         goBasket();
