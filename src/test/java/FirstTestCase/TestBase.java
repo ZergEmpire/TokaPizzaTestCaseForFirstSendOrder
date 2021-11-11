@@ -87,7 +87,7 @@ public class TestBase {
 
     @Step("Добавляю в корзину карточку товара")
     public void pickRandCards() {
-        List<SelenideElement> clickRandomCards = elements(By.xpath("//div/button[contains(@class, \"add-to-basket\") or (contains(text(), \"В корзину\"))]"));
+        List<SelenideElement> clickRandomCards = elements(By.xpath("//div[contains(@class, \"productBox\") and not(contains(@class, \"in-stop-list\")) and not(contains(@class, \"action-wrapper\"))]//button[contains(@class, \"add-to-basket\") or (contains(text(), \"В корзину\"))]"));
         int i = (int) (Math.random() * clickRandomCards.size());
         SelenideElement randCard = $(clickRandomCards.get(i));
         randCard.closest(".item").scrollIntoView(true);
@@ -134,7 +134,7 @@ public class TestBase {
 
     @Step("Кликаю на отправку заказа")
     public void sendOrder() {
-        $x("//div[@class = \"item-cart-buttons\" ]/button[contains(@class, \"btn\")]").scrollTo().click();
+        $x("//div[@class = \"item-cart-buttons\" ]/button[contains(@class, \"btn\") and not (@id)]").scrollTo().click();
     }
 
     @Step("Жду перехода в статус принят")
